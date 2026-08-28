@@ -1,0 +1,50 @@
+generated: '2026-08-28'
+method: derived
+source: openapi/soothe-help-center-mirror-openapi.json
+entity_count: 2
+relationship_count: 1
+note: >-
+  The published contract carries no domain entities. Neither of the two schemas models a
+  Soothe business object — no appointment, provider, client, service, location or
+  subscription appears anywhere in the spec, because the contract describes a
+  content-serving mirror rather than the booking marketplace. Every content-bearing
+  response in the spec is typed as an empty schema `{}`, so there is nothing further to
+  derive.
+entities:
+- name: HTTPValidationError
+  domain: transport
+  description: Envelope returned on a 422 validation failure.
+  fields:
+  - name: detail
+    type: array
+    items: ValidationError
+- name: ValidationError
+  domain: transport
+  description: One field-level validation failure.
+  fields:
+  - name: loc
+    type: array
+    items: string|integer
+    required: true
+  - name: msg
+    type: string
+    required: true
+  - name: type
+    type: string
+    required: true
+relationships:
+- from: HTTPValidationError
+  to: ValidationError
+  kind: has_many
+  via: detail
+  evidence: '#/components/schemas/HTTPValidationError.properties.detail.items.$ref'
+untyped_responses:
+- operation: serve_page__full_path__get
+  note: 200 content schema is `{}` — no shape declared.
+- operation: manifest_manifest_json_get
+  note: >-
+    200 content schema is `{}`, but the live response is an object with source,
+    mirrored_at, page_count, failure_count, assets_downloaded, assets_skipped and a
+    pages[] array of 541 path strings. Observed, not declared.
+- operation: proxy_api_api__full_path__options
+  note: 200 content schema is `{}` — passthrough, shape depends on the upstream.

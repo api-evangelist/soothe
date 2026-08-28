@@ -1,0 +1,76 @@
+generated: '2026-08-28'
+method: derived
+source: >-
+  openapi/soothe-help-center-mirror-openapi.json plus live probes of help.soothe.com,
+  api.soothe.com and www.soothe.com
+scope_note: >-
+  These conventions describe the ONLY contract Soothe publishes — the read-only
+  help-centre mirror at help.soothe.com. They are not the conventions of the Soothe
+  booking or marketplace API, which is not published: api.soothe.com 301s every request
+  to a Rails/Devise sign-in form.
+authentication:
+  style: none
+  detail: Anonymous read-only content service; no securityScheme declared or required.
+  artifact: authentication/soothe-authentication.yml
+idempotency:
+  supported: na
+  header: null
+  scope: null
+  retention: null
+  detail: >-
+    Not applicable. The published surface is content retrieval — GET /{full_path},
+    GET /manifest.json, GET /health — plus an OPTIONS/GET/POST proxy passthrough that
+    creates no resource of its own. There is no create-or-charge write operation for an
+    idempotency key to protect, and Soothe documents no idempotency contract anywhere.
+    No Idempotency pointer is emitted.
+pagination:
+  supported: false
+  style: null
+  detail: >-
+    No collection endpoint. /manifest.json returns the complete list of 541 mirrored page
+    paths in a single unpaginated response.
+field_expansion:
+  supported: false
+sparse_fields:
+  supported: false
+metadata:
+  supported: false
+request_tracing:
+  request_id_header: null
+  detail: No request-id or correlation header is documented or declared in the spec.
+versioning:
+  style: none-in-transport
+  detail: See lifecycle/soothe-lifecycle.yml — info.version 2.1.0 only, no transport signal.
+error_envelope:
+  media_type: application/json
+  field: detail
+  rfc9457: false
+  artifact: errors/soothe-problem-types.yml
+rate_limit_signaling:
+  headers: []
+  detail: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After header observed on any response, and no
+    limits are documented. See rate-limits/soothe-rate-limits.yml.
+reversibility:
+  applicable: na
+  grade: na
+  detail: >-
+    Not applicable. The published contract has no write surface whose effect could be
+    reversed: three of the four paths are read-only content retrieval, and the fourth is
+    a passthrough proxy that persists nothing of its own. Soothe does publish consumer
+    cancellation and refund policies for its wellness bookings
+    (https://help.soothe.com/docs/cancellation-policy,
+    https://help.soothe.com/docs/requesting-a-refund), but those govern human bookings in
+    the app — there is no published API operation that performs them, so they are recorded
+    here as context and deliberately NOT graded as an API reversibility path.
+  reversal_operations: []
+  windows: []
+dry_run_mode:
+  supported: na
+  detail: No write surface, so no rehearsal mode is applicable.
+cross_links:
+  errors: errors/soothe-problem-types.yml
+  lifecycle: lifecycle/soothe-lifecycle.yml
+  authentication: authentication/soothe-authentication.yml
+  rate_limits: rate-limits/soothe-rate-limits.yml
+  data_model: data-model/soothe-data-model.yml

@@ -1,0 +1,47 @@
+generated: '2026-08-28'
+method: derived
+source: openapi/soothe-help-center-mirror-openapi.json
+format: fastapi-detail
+format_note: >-
+  Not RFC 9457. Responses use the FastAPI default envelope — a JSON object with a
+  `detail` member, served as application/json rather than application/problem+json. The
+  404 body observed live on help.soothe.com is {"detail":"Page not found"}.
+envelope:
+  media_type: application/json
+  field: detail
+  shape: >-
+    On validation failure `detail` is an array of ValidationError objects
+    {loc: [string|integer], msg: string, type: string}; on a routing miss it is a plain string.
+problems:
+- status: 422
+  title: Validation Error
+  schema: HTTPValidationError
+  media_type: application/json
+  description: >-
+    The path parameter failed validation. Body is {"detail": [{"loc": [...], "msg": "...",
+    "type": "..."}]}.
+  source_operations:
+  - openapi/soothe-help-center-mirror-openapi.json#proxy_api_api__full_path__options
+  - openapi/soothe-help-center-mirror-openapi.json#serve_page__full_path__get
+- status: 404
+  title: Page not found
+  schema: null
+  media_type: application/json
+  description: >-
+    Observed live, not declared in the spec — the mirror returns
+    {"detail":"Page not found"} for any path it did not mirror. Recorded from a probe of
+    https://help.soothe.com/zzz-control-<random> on 2026-08-28.
+  source_operations:
+  - openapi/soothe-help-center-mirror-openapi.json#serve_page__full_path__get
+  x-evidence:
+    url: https://help.soothe.com/llms.txt
+    http_status: 404
+    body: '{"detail":"Page not found"}'
+gaps:
+- >-
+  The spec declares no 4xx response other than 422 and no 5xx response at all on any
+  operation, so an agent has no declared contract for the 404 it will actually receive.
+- >-
+  Three operations on /api/{full_path} (get, post, options) share one operationId,
+  `proxy_api_api__full_path__options`, which is invalid under OpenAPI's uniqueness rule
+  and makes the operations individually unaddressable.

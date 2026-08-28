@@ -1,0 +1,46 @@
+generated: '2026-08-28'
+method: searched
+source: >-
+  registry.npmjs.org search + package metadata, pypi.org/pypi/soothe/json,
+  api.github.com/orgs/soothe, and https://www.soothe.com/ (no SDK or developer page exists)
+package_count: 0
+packages: []
+note: >-
+  Soothe publishes no first-party client libraries in any public registry. The company
+  ships consumer and provider mobile apps (iOS/Android), not SDKs, and has no developer
+  portal from which an SDK could be linked. No SDKs pointer is emitted.
+rejected:
+- name: soothe
+  registry: npm
+  url: https://www.npmjs.com/package/soothe
+  version: 0.0.0
+  published: null
+  official: false
+  reason: >-
+    Name-squat placeholder at version 0.0.0 with no description, homepage or repository.
+    Nothing ties it to Soothe the wellness marketplace.
+- name: soothe
+  registry: pypi
+  url: https://pypi.org/project/soothe/
+  version: null
+  published: null
+  official: false
+  reason: >-
+    Different project entirely — "Soothe - Goal-driven multi-agent orchestration
+    framework", published from github.com/mirasoth/soothe. Name collision only.
+- name: '@mirasoth/soothe-client'
+  registry: npm
+  url: https://www.npmjs.com/package/@mirasoth/soothe-client
+  version: null
+  published: null
+  official: false
+  reason: Client for the mirasoth agent framework above, unrelated to this company.
+registries_checked:
+- npm
+- pypi
+- rubygems
+- packagist
+- crates.io
+- nuget
+- maven-central
+- pkg.go.dev

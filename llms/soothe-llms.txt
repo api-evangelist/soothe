@@ -1,0 +1,63 @@
+# Soothe
+
+> Soothe is a Los Angeles-based on-demand wellness marketplace, founded in 2013, that
+> connects consumers and businesses with independent, licensed wellness professionals
+> who deliver massage, facial and skincare, and hair and beauty services at the
+> customer's own location. It operates in 40+ US cities and in Australia, Canada and
+> the United Kingdom, and runs a B2B practice covering corporate wellness, hospitality
+> and spa staffing, residential communities and event chair massage.
+
+Important for agents: Soothe publishes NO public developer program and NO public
+booking API. Its API host, https://api.soothe.com, redirects every request to a
+credentialed sign-in form. The corporate and hospitality "booking platform" Soothe
+markets is reached through a contact-sales form, not through documentation. Do not
+attempt to construct calls against api.soothe.com; there is no published contract for
+it. Bookings are made by humans through the Soothe app or the web booking flow.
+
+## APIs
+
+- [Soothe Help Center Mirror](https://help.soothe.com/): The only machine-readable
+  contract Soothe serves. A FastAPI application that serves a self-hosted mirror of the
+  company's Document360 help centre — page serving, an upstream proxy, a mirror manifest
+  and a health check. Anonymous and read-only. This is NOT the booking API.
+
+## Specs
+
+- [OpenAPI 3.1.0 — Help Center Mirror](https://help.soothe.com/openapi.json): 4 paths,
+  6 operations, no securitySchemes, no servers block.
+- [Mirror manifest](https://help.soothe.com/manifest.json): the crawlable index of all
+  541 mirrored help-centre page paths, with the mirror timestamp.
+- [Mirror health](https://help.soothe.com/health): status, page count, last mirror time.
+
+## Docs
+
+- [Help Center](https://help.soothe.com/): client, provider and partner documentation.
+- [Client help](https://help.soothe.com/client)
+- [Provider help](https://help.soothe.com/provider)
+- [Partner help](https://help.soothe.com/partners)
+- [Booking an appointment](https://help.soothe.com/docs/booking-an-appointment)
+- [Cancellation policy](https://help.soothe.com/docs/cancellation-policy)
+- [Requesting a refund](https://help.soothe.com/docs/requesting-a-refund)
+- [SoothePass](https://help.soothe.com/docs/soothepass)
+
+## Company
+
+- [Website](https://www.soothe.com/)
+- [Services and starting prices](https://www.soothe.com/services/)
+- [Corporate wellness and partnerships](https://www.soothe.com/corporate-wellness-and-partnerships/)
+- [Hospitality](https://www.soothe.com/hospitality/)
+- [About](https://www.soothe.com/about-soothe/)
+- [Contact / support](https://www.soothe.com/contact-us/)
+- [Articles](https://www.soothe.com/articles/)
+- [Trust and safety](https://www.soothe.com/trust-and-safety/)
+- [Terms and conditions](https://www.soothe.com/terms-and-conditions/)
+- [Privacy policy](https://www.soothe.com/legal/privacy/us)
+- [Sign in](https://www.soothe.com/sign_on/)
+- [GitHub](https://github.com/soothe)
+
+## Not published
+
+- No OpenAPI, GraphQL SDL, AsyncAPI or Postman collection for the booking marketplace.
+- No MCP server, no A2A agent card, no /.well-known documents on any host.
+- No SDKs or client libraries in any public registry.
+- No status page, changelog, deprecation policy, rate limits or API pricing.

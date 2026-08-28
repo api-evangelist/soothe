@@ -1,0 +1,104 @@
+generated: '2026-08-28'
+method: probed
+source: live GET of /.well-known/* on every host in apis.yml plus the API and docs hosts
+hit_count: 0
+note: >-
+  No /.well-known document is served on any Soothe host. Two of the three hosts answer
+  200 to every path — api.soothe.com is a Rails/Devise application that 301s every
+  request to /users/sign_in and returns the same 20,949-byte login HTML for every path,
+  and www.soothe.com (WordPress) returns the same 20,961-byte shell for every
+  /.well-known/* path. Both were confirmed against a random-path soft-404 control that
+  returned an identical status and byte count, so every 200 below is a catch-all, not a
+  document. help.soothe.com is the only host that 404s honestly, with a JSON
+  {"detail":"Page not found"} body. No WellKnown or SecurityTxt pointer is emitted:
+  nothing was fetched and nothing was saved.
+hosts:
+- host: https://api.soothe.com
+  soft_404_control:
+    path: /zzz-nonexistent-<random>
+    status: 200
+    bytes: 20949
+    note: catch-all login shell; identical status and byte count to every probe below
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: null
+    note: catch-all HTML login shell, not a document
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    note: catch-all HTML login shell, not a document
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: null
+    note: catch-all HTML login shell, not a document
+  - path: /.well-known/api-catalog
+    status: 200
+    file: null
+    note: catch-all HTML login shell, not a document
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    file: null
+    note: catch-all HTML login shell, not a document
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: null
+    note: catch-all HTML login shell, not a document
+  - path: /.well-known/agent.json
+    status: 200
+    file: null
+    note: catch-all HTML login shell, not a document
+- host: https://www.soothe.com
+  soft_404_control:
+    path: /.well-known/zzz-<random>
+    status: 200
+    bytes: 20961
+    note: catch-all shell; identical status and byte count to every probe below
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: null
+    note: catch-all HTML shell, not a document
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    note: catch-all HTML shell, not a document
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: null
+    note: catch-all HTML shell, not a document
+  - path: /.well-known/api-catalog
+    status: 200
+    file: null
+    note: catch-all HTML shell, not a document
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    file: null
+    note: catch-all HTML shell, not a document
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: null
+    note: catch-all HTML shell, not a document
+  - path: /.well-known/agent.json
+    status: 200
+    file: null
+    note: catch-all HTML shell, not a document
+- host: https://help.soothe.com
+  soft_404_control:
+    path: /zzz-control-<random>
+    status: 404
+    bytes: 27
+    note: honest 404 with a JSON body; this host does not catch-all
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null

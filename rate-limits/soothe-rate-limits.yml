@@ -1,0 +1,16 @@
+generated: '2026-08-28'
+method: searched
+source: >-
+  https://help.soothe.com/ , openapi/soothe-help-center-mirror-openapi.json, and live
+  response headers observed on https://help.soothe.com/health and
+  https://help.soothe.com/manifest.json
+limit_count: 0
+rate_limits: []
+headers: []
+exhaustion_status: null
+note: >-
+  Soothe documents no rate limits. There is no developer portal or API reference in which
+  a limit could be published, the help-centre mirror spec declares no 429 response on any
+  operation, and no X-RateLimit-*, RateLimit-* or Retry-After header was observed on any
+  live response from help.soothe.com. An agent calling this surface has no runtime signal
+  telling it when to back off. Recorded as an honest zero; no RateLimits pointer emitted.

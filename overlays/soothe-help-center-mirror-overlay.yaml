@@ -1,0 +1,56 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Soothe Help Center Mirror
+  version: 1.0.0
+x-generated: '2026-08-28'
+x-method: generated
+x-source: openapi/soothe-help-center-mirror-openapi.json
+extends: openapi/soothe-help-center-mirror-openapi.json
+actions:
+- target: $.info
+  update:
+    description: >-
+      Auto-generated FastAPI schema for the self-hosted mirror Soothe runs at
+      help.soothe.com in front of its Document360 help centre. It describes the mirror
+      service — page serving, an upstream API proxy, a mirror manifest and a health check
+      — and is not the Soothe booking or marketplace API.
+    x-apievangelist-surface: internal-infrastructure
+    x-apievangelist-note: >-
+      Recorded because it is the only machine-readable contract Soothe serves from a host
+      it controls. The company publishes no developer program.
+- target: $
+  update:
+    servers:
+    - url: https://help.soothe.com
+      description: >-
+        Observed host. The original document declares no servers[] block; this value is
+        the host the specification was fetched from and on which every operation was
+        confirmed live.
+- target: $.paths['/health'].get
+  update:
+    description: >-
+      Liveness and freshness of the mirror. Observed response shape:
+      {"status":"ok","pages":541,"mirrored_at":"2026-06-22T07:54:05.024548+00:00",
+      "assets_downloaded":1670,"api_cache_files":692}.
+    x-apievangelist-observed: '2026-08-28'
+- target: $.paths['/manifest.json'].get
+  update:
+    description: >-
+      The mirror manifest. Observed response is an object with source, mirrored_at,
+      page_count, failure_count, assets_downloaded, assets_skipped and a pages[] array of
+      541 help-centre paths — the crawlable index of the help centre.
+    x-apievangelist-observed: '2026-08-28'
+- target: $.paths['/{full_path}'].get
+  update:
+    description: >-
+      Serve one mirrored help-centre page by path. Returns the rendered page for a path
+      present in /manifest.json, and 404 {"detail":"Page not found"} otherwise.
+    x-apievangelist-undeclared-response: >-
+      404 is returned live but is not declared in the original document.
+- target: $.paths['/api/{full_path}']
+  update:
+    x-apievangelist-defect: >-
+      All three operations (get, post, options) declare the same operationId
+      "proxy_api_api__full_path__options", which violates the OpenAPI uniqueness
+      requirement and leaves the GET and POST operations individually unaddressable by
+      any generator, SDK or agent tool binding.

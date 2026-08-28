@@ -1,0 +1,34 @@
+generated: '2026-08-28'
+method: probed
+source: >-
+  openapi/soothe-help-center-mirror-openapi.json (no securitySchemes) plus live probes of
+  https://api.soothe.com/ and https://www.soothe.com/sign_on/
+summary:
+  types: []
+  api_key_in: []
+  oauth2_flows: []
+schemes: []
+note: >-
+  Soothe publishes no authenticated API contract. The only machine-readable spec it
+  serves — the help-centre mirror schema — declares no components.securitySchemes and no
+  security requirement on any operation; that surface is anonymous read-only content.
+  The company's actual API host, api.soothe.com, is not anonymous: every request 301s to
+  /users/sign_in and returns a Rails/Devise session login form (page title "Api | Log
+  In") carrying a CSRF token. That is a browser session login, not a documented API
+  credential scheme, and no key type, header, scope model or token endpoint is published
+  anywhere on soothe.com. Recorded as an honest absence rather than guessed.
+observed:
+- host: https://api.soothe.com
+  status: 301
+  redirect: https://api.soothe.com/users/sign_in
+  mechanism: rails-devise-session-login
+  evidence: 'HTML form with authenticity_token; <title>Api | Log In </title>'
+  documented: false
+- host: https://www.soothe.com/sign_on/
+  status: 200
+  mechanism: consumer-account-login
+  documented: false
+- host: https://help.soothe.com
+  status: 200
+  mechanism: none
+  note: anonymous, unauthenticated read-only content service

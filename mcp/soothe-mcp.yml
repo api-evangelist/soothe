@@ -1,0 +1,31 @@
+generated: '2026-08-28'
+method: derived
+status: candidate
+source: openapi/soothe-help-center-mirror-openapi.json
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: searched
+note: >-
+  Soothe ships no MCP server. No hosted endpoint, no stdio package, and nothing in any
+  registry or on soothe.com references MCP. The candidate tools below are DERIVED from
+  the only machine-readable contract Soothe serves — the FastAPI schema of its
+  self-hosted help-centre mirror at help.soothe.com — and describe content retrieval,
+  not the Soothe booking or marketplace API. No MCPServer pointer is emitted in
+  apis.yml, because none exists to point at.
+server: null
+tools:
+- name: get_help_page
+  description: Fetch a rendered page from the Soothe help centre mirror by path.
+  source_operation: openapi/soothe-help-center-mirror-openapi.json#serve_page__full_path__get
+- name: get_help_manifest
+  description: >-
+    Fetch the mirror manifest listing every mirrored help-centre page path, the mirror
+    timestamp and asset counts.
+  source_operation: openapi/soothe-help-center-mirror-openapi.json#manifest_manifest_json_get
+- name: get_help_health
+  description: Fetch the mirror health status, page count and last mirror timestamp.
+  source_operation: openapi/soothe-help-center-mirror-openapi.json#health_health_get

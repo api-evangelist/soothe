@@ -1,0 +1,21 @@
+generated: '2026-08-28'
+method: generated
+source: openapi/soothe-help-center-mirror-openapi.json
+skills:
+- file: soothe-read-help-center.md
+  name: Read the Soothe help centre
+  description: >-
+    Retrieve Soothe's client, provider and partner help-centre content from the mirror at
+    help.soothe.com, using its manifest as the index, and refuse booking or write
+    requests because Soothe publishes no API for them.
+  api: openapi/soothe-help-center-mirror-openapi.json
+  operations:
+  - health_health_get
+  - manifest_manifest_json_get
+  - serve_page__full_path__get
+note: >-
+  Only one skill is grounded here, because the only contract Soothe publishes has four
+  paths and no domain operations. No skill is authored for booking, cancellation, refunds
+  or provider management: those flows exist in Soothe's product but have no published
+  operation to ground a step in, and inventing one would teach an agent to call an
+  endpoint that does not exist.

@@ -1,0 +1,44 @@
+generated: '2026-08-28'
+method: searched
+source: >-
+  https://www.soothe.com/services/ ,
+  https://www.soothe.com/corporate-wellness-and-partnerships/ , and
+  https://www.soothe.com/sitemap.xml (no /pricing page exists — it returns 404)
+plan_count: 0
+plans: []
+note: >-
+  Soothe publishes no API plans, tiers, quotas or overages, because it has no public API
+  product to price. It is also not a self-serve API vendor: there is no /pricing page
+  (https://www.soothe.com/pricing returns 404 and no pricing URL appears in the sitemap),
+  and no Pricing pointer is emitted. The company's consumer pricing is published only as
+  a single starting price on the services page, and its B2B corporate-wellness,
+  hospitality and events business is quoted through a contact-sales form.
+service_pricing_observed:
+- item: Swedish Massage
+  price_from: 65
+  currency: USD
+  duration: 60-120 minutes
+  source: https://www.soothe.com/services/
+  note: >-
+    The only figure published anywhere on the site. Every other listed service — deep
+    tissue, sports, prenatal, chair, percussive, reflexology, lymphatic, acupressure,
+    Thai, myofascial, assisted stretching, facials, haircuts and beauty — is listed with
+    no price.
+- item: SoothePass membership
+  price_from: null
+  currency: null
+  billing_period: monthly
+  source: https://www.soothe.com/services/
+  note: >-
+    Referenced as a subscription membership; no price is shown on any public page.
+    https://www.soothe.com/soothepass/ returns 404; the member docs at
+    https://help.soothe.com/docs/soothepass describe benefits, not price.
+b2b:
+  model: contact-sales
+  segments:
+  - corporate and employee wellness
+  - hospitality and spa staffing
+  - residential communities
+  - events and chair massage
+  source: https://www.soothe.com/corporate-wellness-and-partnerships/
+  note: Custom quoted; no rate card, no volume tiers, no published minimums.

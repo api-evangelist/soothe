@@ -1,18 +1,63 @@
 aid: soothe
 name: Soothe
-description: 'Soothe is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Soothe is a Los Angeles-based on-demand wellness marketplace, founded in
+  2013, that connects consumers and businesses with independent, licensed wellness
+  professionals who deliver services at the customer''s own location. The marketplace
+  covers massage (Swedish, deep tissue, sports, prenatal, chair, percussive,
+  reflexology, lymphatic, acupressure, Thai and myofascial), facials and skincare, and
+  hair and beauty services, booked through the Soothe consumer app and web booking
+  flow and fulfilled through the separate Soothe for Providers app. Alongside the B2C
+  business, Soothe runs a B2B practice covering corporate and employee wellness
+  programs, hospitality and spa staffing, residential communities and event chair
+  massage, plus a SoothePass subscription membership. It operates in 40+ US cities
+  across roughly 32 states and Washington D.C., and internationally in Australia,
+  Canada and the United Kingdom. Soothe publishes no public developer program: its API
+  host, api.soothe.com, is a credentialed sign-in wall, and the partner booking
+  platform it markets to hospitality and corporate customers is reached through a
+  contact-sales form rather than public documentation.'
 url: https://raw.githubusercontent.com/api-evangelist/soothe/refs/heads/main/apis.yml
+image: https://www.soothe.com/wp-content/uploads/2021/09/cropped-cropped-soothe-logo-hands-blue-32x32.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-28'
 modified: '2026-08-28'
 tags:
 - Company
-apis: []
+- Wellness
+- Health and Wellness
+- Massage
+- Marketplace
+- On-Demand Services
+- Beauty
+- Corporate Wellness
+- Hospitality
+- Consumer Services
+- Local Services
+- Booking
+apis:
+- name: Soothe Help Center Mirror
+  description: 'The auto-generated OpenAPI 3.1.0 schema published by the FastAPI
+    application Soothe runs at help.soothe.com to serve a self-hosted mirror of its
+    Document360 help centre. It describes the mirror service itself — page serving,
+    an upstream API proxy, a mirror manifest and a health check — and is NOT the
+    Soothe booking or marketplace API. It is recorded here because it is the only
+    machine-readable contract Soothe serves from a host it controls.'
+  humanURL: https://help.soothe.com/
+  baseURL: https://help.soothe.com
+  tags:
+  - Help Center
+  - Documentation
+  - Content
+  properties:
+  - type: OpenAPI
+    url: openapi/soothe-help-center-mirror-openapi.json
+  - type: Overlay
+    url: overlays/soothe-help-center-mirror-overlay.yaml
+  - type: ErrorCatalog
+    url: errors/soothe-problem-types.yml
+  - type: DataModel
+    url: data-model/soothe-data-model.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -20,4 +65,68 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://www.soothe.com/
+- type: Documentation
+  url: https://help.soothe.com/
+- type: HelpCenter
+  url: https://help.soothe.com/
+- type: Support
+  url: https://www.soothe.com/contact-us/
+- type: Blog
+  url: https://www.soothe.com/articles/
+- type: SignUp
+  url: https://www.soothe.com/sign_on/
+- type: TermsOfService
+  url: https://www.soothe.com/terms-and-conditions/
+- type: PrivacyPolicy
+  url: https://www.soothe.com/legal/privacy/us
+- type: GitHubOrganization
+  url: https://github.com/soothe
+- type: Authentication
+  url: authentication/soothe-authentication.yml
+- type: Conformance
+  url: conformance/soothe-conformance.yml
+- type: Conventions
+  url: conventions/soothe-conventions.yml
+- type: Lifecycle
+  url: lifecycle/soothe-lifecycle.yml
+- type: DomainSecurity
+  url: security/soothe-domain-security.yml
+- type: LLMsTxt
+  url: llms/soothe-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Packages
+  url: packages/soothe-packages.yml
+- type: Plans
+  url: plans/soothe-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/soothe-rate-limits.yml
+x-enrichment:
+  date: '2026-08-28'
+  status: minimal
+  artifacts_added: 17
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: partner-login
+  detail: >-
+    Soothe's API host api.soothe.com 301s every path to a Rails/Devise session sign-in
+    form (page title "Api | Log In") and returns that same login HTML for every URL
+    including a random-path control, so no contract, reference or error shape is
+    reachable without credentials; the only machine-readable document Soothe serves
+    publicly is the auto-generated FastAPI schema of its self-hosted help-centre mirror at
+    help.soothe.com, which describes page serving and a health check rather than the
+    booking marketplace.
+  evidence:
+  - url: https://api.soothe.com/
+    status: 301
+  - url: https://api.soothe.com/users/sign_in
+    status: 200
+  - url: https://api.soothe.com/openapi.json
+    status: 200
+  - url: https://help.soothe.com/openapi.json
+    status: 200
+  - url: https://www.soothe.com/docs
+    status: 404
+  checked: '2026-08-28'

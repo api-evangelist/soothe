@@ -1,0 +1,43 @@
+generated: '2026-08-28'
+method: searched
+source: >-
+  openapi/soothe-help-center-mirror-openapi.json, https://www.soothe.com/sitemap.xml,
+  https://help.soothe.com/, and live host probes
+versioning:
+  scheme: info-version-only
+  current: 2.1.0
+  in_path: false
+  docs: null
+  note: >-
+    The only version signal is info.version 2.1.0 in the help-centre mirror schema. There
+    is no version segment in any path, no version header, no published versioning policy
+    and no version negotiation documented anywhere on soothe.com.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: >-
+    No deprecation policy, no RFC 8594 Sunset/Deprecation header support, and no
+    deprecated operations declared in the spec. No Deprecation pointer emitted.
+sla:
+  url: null
+  uptime_target: null
+status_page:
+  url: null
+  note: >-
+    status.soothe.com does not resolve (DNS returns no record) and no third-party status
+    page (statuspage.io, status.io, betteruptime) is linked from soothe.com or
+    help.soothe.com. No StatusPage pointer emitted. The mirror does expose an unadvertised
+    liveness endpoint at https://help.soothe.com/health which returns
+    {"status":"ok","pages":541,...}; that is a health check, not a status page.
+changelog:
+  url: null
+  note: No dated changelog or release-notes page is published. changelog/ artifact skipped.
+deprecated_operations: []
+freshness:
+  mirrored_at: '2026-06-22T07:54:05Z'
+  page_count: 541
+  source: https://help.soothe.com/manifest.json
+  note: >-
+    The help-centre mirror manifest reports its content snapshot is from 2026-06-22 with
+    541 pages and 0 failures. That is the closest thing to a lifecycle signal Soothe
+    publishes, and it means the served docs are a point-in-time copy, not live content.

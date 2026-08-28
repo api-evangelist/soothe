@@ -64,5 +64,21 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Soothe is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+Soothe is a Los Angeles-based on-demand wellness marketplace, founded in 2013, that
+connects consumers and businesses with independent, licensed wellness professionals who
+deliver massage, facial and skincare, and hair and beauty services at the customer's own
+location. It operates in 40+ US cities and internationally in Australia, Canada and the
+United Kingdom, and runs a B2B practice covering corporate and employee wellness,
+hospitality and spa staffing, residential communities and event chair massage, alongside
+a SoothePass subscription membership.
+
+Soothe publishes no public developer program. Its API host, `api.soothe.com`, redirects
+every request to a credentialed sign-in form, and the partner booking platform it markets
+to hospitality and corporate customers is reached through a contact-sales form rather
+than public documentation. The only machine-readable contract Soothe serves from a host
+it controls is the auto-generated OpenAPI 3.1.0 schema of the self-hosted help-centre
+mirror at `help.soothe.com` — a page-serving and health-check service, not the booking
+marketplace.
+
+- https://www.soothe.com/
+- https://help.soothe.com/
