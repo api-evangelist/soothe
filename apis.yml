@@ -16,6 +16,17 @@ description: 'Soothe is a Los Angeles-based on-demand wellness marketplace, foun
   platform it markets to hospitality and corporate customers is reached through a
   contact-sales form rather than public documentation.'
 url: https://raw.githubusercontent.com/api-evangelist/soothe/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.soothe.com/wp-content/uploads/2021/09/cropped-cropped-soothe-logo-hands-blue-32x32.png
 x-type: company
 x-source: harvest:secondary-market
