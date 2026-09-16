@@ -61,24 +61,45 @@ tags:
 - Local Services
 - Booking
 apis:
-- name: Soothe Help Center Mirror
-  description: 'The auto-generated OpenAPI 3.1.0 schema published by the FastAPI
-    application Soothe runs at help.soothe.com to serve a self-hosted mirror of its
-    Document360 help centre. It describes the mirror service itself — page serving,
-    an upstream API proxy, a mirror manifest and a health check — and is NOT the
-    Soothe booking or marketplace API. It is recorded here because it is the only
-    machine-readable contract Soothe serves from a host it controls.'
+- aid: soothe:soothe-health-api
+  name: Soothe Health API
+  description: The Health API from Soothe — 1 operation(s) for health.
   humanURL: https://help.soothe.com/
   baseURL: https://help.soothe.com
   tags:
-  - Help Center
-  - Documentation
-  - Content
+  - Health
   properties:
   - type: OpenAPI
-    url: openapi/soothe-help-center-mirror-openapi.json
-  - type: Overlay
-    url: overlays/soothe-help-center-mirror-overlay.yaml
+    url: openapi/soothe-health-api-openapi.yml
+  - type: ErrorCatalog
+    url: errors/soothe-problem-types.yml
+  - type: DataModel
+    url: data-model/soothe-data-model.yml
+- aid: soothe:soothe-manifest-json-api
+  name: Soothe Manifest.json API
+  description: The Manifest.json API from Soothe — 1 operation(s) for manifest.json.
+  humanURL: https://help.soothe.com/
+  baseURL: https://help.soothe.com
+  tags:
+  - Manifest.json
+  properties:
+  - type: OpenAPI
+    url: openapi/soothe-manifest-json-api-openapi.yml
+  - type: ErrorCatalog
+    url: errors/soothe-problem-types.yml
+  - type: DataModel
+    url: data-model/soothe-data-model.yml
+- aid: soothe:soothe-soothe-help-center-mirror-api
+  name: Soothe Soothe Help Center Mirror API
+  description: >-
+    The Soothe Help Center Mirror API from Soothe — 2 operation(s) for soothe help center mirror.
+  humanURL: https://help.soothe.com/
+  baseURL: https://help.soothe.com
+  tags:
+  - Soothe Help Center Mirror
+  properties:
+  - type: OpenAPI
+    url: openapi/soothe-soothe-help-center-mirror-api-openapi.yml
   - type: ErrorCatalog
     url: errors/soothe-problem-types.yml
   - type: DataModel
@@ -89,6 +110,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/soothe-help-center-mirror-overlay.yaml
 - type: Website
   url: https://www.soothe.com/
 - type: Documentation
