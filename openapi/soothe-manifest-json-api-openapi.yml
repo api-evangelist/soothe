@@ -1,0 +1,19 @@
+openapi: 3.2.0
+info:
+  title: Soothe Help Center Mirror Manifest.json API
+  version: 2.1.0
+tags:
+- name: Manifest.json
+paths:
+  /manifest.json:
+    get:
+      summary: Manifest
+      operationId: manifest_manifest_json_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+      tags:
+      - Manifest.json

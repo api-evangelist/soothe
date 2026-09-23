@@ -1,0 +1,33 @@
+{
+  "provider": "soothe",
+  "sources": [
+    "_original/soothe-help-center-mirror-openapi.json"
+  ],
+  "outputs": [
+    "soothe-health-api-openapi.yml",
+    "soothe-manifest-json-api-openapi.yml",
+    "soothe-soothe-help-center-mirror-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "soothe-help-center-mirror-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "soothe-help-center-mirror-openapi.json: tagged paths OPTIONS /api/{full_path} -> Soothe Help Center Mirror",
+    "soothe-help-center-mirror-openapi.json: tagged paths GET /api/{full_path} -> Soothe Help Center Mirror",
+    "soothe-help-center-mirror-openapi.json: tagged paths POST /api/{full_path} -> Soothe Help Center Mirror",
+    "soothe-help-center-mirror-openapi.json: tagged paths GET /health -> Health",
+    "soothe-help-center-mirror-openapi.json: tagged paths GET /manifest.json -> Manifest.json",
+    "soothe-help-center-mirror-openapi.json: tagged paths GET /{full_path} -> Soothe Help Center Mirror",
+    "soothe-help-center-mirror-openapi.json: declared missing tag: Health",
+    "soothe-help-center-mirror-openapi.json: declared missing tag: Manifest.json",
+    "soothe-help-center-mirror-openapi.json: declared missing tag: Soothe Help Center Mirror",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "soothe-health-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "soothe-manifest-json-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "soothe-soothe-help-center-mirror-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}
