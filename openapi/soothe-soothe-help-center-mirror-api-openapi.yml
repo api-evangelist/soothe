@@ -32,7 +32,7 @@ paths:
       - Soothe Help Center Mirror
     get:
       summary: Proxy Api
-      operationId: proxy_api_api__full_path__options
+      operationId: getApiByFullPath
       parameters:
       - name: full_path
         in: path
@@ -54,9 +54,11 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       tags:
       - Soothe Help Center Mirror
+      x-operation-id-source: normalized
+      x-operation-id-original: proxy_api_api__full_path__options
     post:
       summary: Proxy Api
-      operationId: proxy_api_api__full_path__options
+      operationId: postApiByFullPath
       parameters:
       - name: full_path
         in: path
@@ -78,6 +80,8 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       tags:
       - Soothe Help Center Mirror
+      x-operation-id-source: normalized
+      x-operation-id-original: proxy_api_api__full_path__options
   /{full_path}:
     get:
       summary: Serve Page
