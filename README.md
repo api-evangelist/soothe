@@ -64,21 +64,117 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Soothe is a Los Angeles-based on-demand wellness marketplace, founded in 2013, that
-connects consumers and businesses with independent, licensed wellness professionals who
-deliver massage, facial and skincare, and hair and beauty services at the customer's own
-location. It operates in 40+ US cities and internationally in Australia, Canada and the
-United Kingdom, and runs a B2B practice covering corporate and employee wellness,
-hospitality and spa staffing, residential communities and event chair massage, alongside
-a SoothePass subscription membership.
+Soothe is a Los Angeles-based on-demand wellness marketplace, founded in 2013, that connects consumers and businesses with independent, licensed wellness professionals who deliver services at the customer's own location. The marketplace covers massage (Swedish, deep tissue, sports, prenatal, chair, percussive, reflexology, lymphatic, acupressure, Thai and myofascial), facials and skincare, and hair and beauty services, booked through the Soothe consumer app and web booking flow and fulfilled through the separate Soothe for Providers app. Alongside the B2C business, Soothe runs a B2B practice covering corporate and employee wellness programs, hospitality and spa staffing, residential communities and event chair massage, plus a SoothePass subscription membership. It operates in 40+ US cities across roughly 32 states and Washington D.C., and internationally in Australia, Canada and the United Kingdom. Soothe publishes no public developer program: its API host, api.soothe.com, is a credentialed sign-in wall, and the partner booking platform it markets to hospitality and corporate customers is reached through a contact-sales form rather than public documentation.
 
-Soothe publishes no public developer program. Its API host, `api.soothe.com`, redirects
-every request to a credentialed sign-in form, and the partner booking platform it markets
-to hospitality and corporate customers is reached through a contact-sales form rather
-than public documentation. The only machine-readable contract Soothe serves from a host
-it controls is the auto-generated OpenAPI 3.1.0 schema of the self-hosted help-centre
-mirror at `help.soothe.com` — a page-serving and health-check service, not the booking
-marketplace.
+**Areas:** Company · Wellness · Health and Wellness · Massage · Marketplace · On-Demand Services · Beauty · Corporate Wellness · Hospitality · Consumer Services · Local Services · Booking
 
-- https://www.soothe.com/
-- https://help.soothe.com/
+## Soothe on APIs.io
+
+Everything profiled for Soothe is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/soothe/](https://apis.io/providers/soothe/)** — or go straight to one of the APIs or properties below.
+
+### APIs (3)
+
+- [Soothe Health API](https://apis.io/apis/soothe/soothe-health-api/) — The Health API from Soothe — 1 operation(s) for health.
+- [Soothe Manifest.json API](https://apis.io/apis/soothe/soothe-manifest-json-api/) — The Manifest.json API from Soothe — 1 operation(s) for manifest.json.
+- [Soothe Soothe Help Center Mirror API](https://apis.io/apis/soothe/soothe-soothe-help-center-mirror-api/) — The Soothe Help Center Mirror API from Soothe — 2 operation(s) for soothe help center mirror.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [soothe-mcp.yml](https://apis.io/servers/soothe/soothe-mcp-yml/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Soothe Help Center Mirror Overlay](https://apis.io/overlays/soothe/soothe-help-center-mirror-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Soothe Authentication](https://apis.io/security/soothe/soothe-authentication/)
+- [Soothe Domain Security](https://apis.io/security/soothe/soothe-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Soothe Plans Pricing](https://apis.io/plans/soothe/soothe-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Soothe Rate Limits](https://apis.io/rate-limits/soothe/soothe-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.soothe.com/)
+- [Documentation](https://help.soothe.com/)
+- [Sign up](https://www.soothe.com/sign_on/)
+- [Support](https://www.soothe.com/contact-us/)
+- [Blog](https://www.soothe.com/articles/)
+- [Terms of service](https://www.soothe.com/terms-and-conditions/)
+- [Privacy policy](https://www.soothe.com/legal/privacy/us)
+- [GitHub](https://github.com/soothe)
+
+## API Evangelist rating
+
+**Kin Score 30.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 34.5 |
+| Contract governance | 4.5 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 30.4 |
+| Access clarity | 34.2 |
+
+**Agent readiness 24.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 19.5** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/soothe/](https://apis.io/providers/soothe/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Soothe: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/soothe/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
